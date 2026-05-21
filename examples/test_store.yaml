@@ -1,0 +1,75 @@
+# 追风者 测试数据
+# 用于快速启动演示，跳过阶段0门店问诊
+
+stores:
+  wutong-coffee:
+    name: "梧桐咖啡 · Wutong Coffee"
+    city: "上海"
+    district: "静安区"
+    street: "愚园路（梧桐树街段）"
+    category: "精品咖啡 + 创意特调"
+    open_duration: "1年半"
+    area_sqm: 35
+    seats: 8
+    hours: "08:00 - 21:00"
+    monthly_revenue: "4-6万"
+    avg_ticket: 30
+    margin: 0.65
+    revisit_rate: 0.25
+    weekday_vs_weekend: "周末多5成"
+
+    traffic:
+      morning: 15
+      noon: 25
+      afternoon: 20
+      evening: 10
+
+    competitors:
+      - name: "Manner"
+        distance: "50m"
+        strength: "9.9元价格锚点"
+      - name: "M Stand"
+        distance: "转角"
+        strength: "设计感空间+联名款"
+      - name: "Seesaw"
+        distance: "800m"
+        strength: "品牌调性+社区店模式"
+
+    products:
+      top3:
+        - name: "梧桐冷萃"
+          price: 28
+        - name: "桂花酒酿拿铁"
+          price: 32
+        - name: "上海奶咖"
+          price: 30
+      top3_margin:
+        - name: "梧桐冷萃"
+          margin: 0.72
+        - name: "桂花酒酿拿铁"
+          margin: 0.68
+        - name: "澳白"
+          margin: 0.70
+      sku_total: 22
+
+    costs:
+      rent: 18000
+      labor: 14000
+      utilities: 3000
+      total_fixed: 35000
+
+    strengths:
+      - "愚园路临街梧桐树景，窗边座位天然出片"
+      - "创意特调有差异化（桂花酒酿、梧桐冷萃）"
+      - "熟客社群200+人，活跃度高"
+
+    pains:
+      - "Manner 9.9元截流严重"
+      - "品牌辨识度低，路人以为是普通咖啡馆"
+      - "大众点评评分4.2，差评集中在'不知道跟Manner有什么区别'"
+
+    budget: "1000-2000元"
+    taboos:
+      - "不想拼价格"
+      - "不想做外卖（影响出品质量）"
+      - "老板不想出镜"
