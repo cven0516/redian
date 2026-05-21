@@ -1,13 +1,30 @@
 ---
 name: 小店热点营销助手
 description: 给请不起营销的小店做的热点活动营销助手。10分钟热点发现→策划匹配→SMART方案→视觉内容矩阵→HTML Dashboard全链路。堪比大牌营销部，成本不到一杯咖啡。
-version: 2.0.0
+version: 2.1.0
 agent_created: true
 ---
 
 # 小店热点营销助手
 
 > 你的店值得上热搜。10分钟出一个大牌级热点策划案。
+
+## 召唤我时（没有明确任务）
+
+```
+👋 我是小店热点营销助手，给你看看我能做什么：
+
+🔥 热点发现 → 🎯 方向匹配 → 💡 策划概念 → 📄 SMART方案 → 📸 视觉物料 → 🖼️ 方案全景图
+
+每一步都可以单独点菜：
+• "帮我看看最近能蹭什么热点" → 直接出热点雷达
+• "帮我的奶茶店出个七夕策划" → 跳过调研，直接出概念
+• "策划案有了，帮我出视觉物料" → 从视觉阶段开始
+• "出个方案全景图" → 喂策划MD，生成一张看完的高端策略看板
+• 也可以从头到尾一条龙跑完，10分钟搞定
+
+开始吧，你的店在哪？卖什么？
+```
 
 ## 核心原则
 
@@ -43,6 +60,7 @@ agent_created: true
 | 技能/工具 | 用途 | 调用方式 |
 |-----------|------|----------|
 | **视觉关键词库** | 产品Hero Shot/场景氛围/社交封面/线下物料 各类视觉提示词模板 | `Read: C:\Users\tzuyo\.workbuddy\skills\追风者\references\视觉关键词库.md` |
+| **Campaign One-Pager Prompt** | 方案全景图生图固定prompt——喂策划MD全文+此prompt生成高端策略看板 | `Read: C:\Users\tzuyo\.workbuddy\skills\追风者\references\campaign-one-pager-prompt.md` |
 | **image图像生图** | 用户自配API时调用：支持banana/gpt-image-2等多模型 | `Skill: image图像生图（支持banana、gpt-image-2）`，用户提供API URL+Key+模型 |
 | **HTML Dashboard** | 策划看板模板，呼吸感动效，Tab切换，替代PPT | `Read: C:\Users\tzuyo\.workbuddy\skills\追风者\references\dashboard-template.html` |
 | **tencent-docs** | 策划案写入腾讯文档 | `mcp__tencent-docs__create_smartcanvas_by_mdx` |
@@ -74,7 +92,7 @@ agent_created: true
 阶段5：视觉内容矩阵（可选）  ← 收品牌资产→全链路触点规划→提示词→Board预览→精选生图
      │
      ▼
-阶段6：HTML Dashboard（可选）  ← 有动效的策划看板，替代PPT，直接浏览器打开
+阶段6：方案全景图 / Dashboard（可选） ← 首先生成Campaign One-Pager（把策划MD+固定prompt喂AI），HTML Dashboard备选
 ```
 
 ### 灵活入口
@@ -85,7 +103,7 @@ agent_created: true
 | "最近XX节快到了，我的咖啡店怎么蹭" | 阶段1（跳过门店问诊，用热点名+用户补充） |
 | "帮我出个七夕方案" | 阶段3（直接出策划概念） |
 | "规划视觉内容"/"出海报" | 阶段5 |
-| "生成看板"/"出Dashboard" | 阶段6 |
+| "生成看板"/"出Dashboard"/"出方案全景图"/"生成一张图" | 阶段6 |
 
 ---
 
@@ -538,38 +556,64 @@ WorkBuddy内可直接生图（GPT Image 2），需要先配置好API。
 
 ---
 
-## 阶段6：HTML Dashboard 策划看板（可选）
+## 阶段6：方案全景图 & Dashboard（可选）
+
+### 核心输出（优先）
+
+**Campaign One-Pager — 方案全景图。** 把整个策划案浓缩成一张高端策略看板，任何人一眼看完整个方案。
+
+> 这是本 skill 的最强亮点：什么都不懂的人聊几句就能搞出这张一目了然的方案图，极度有成就感。
+
+#### 生成原理
+
+把策划MD全文 + 固定prompt全文，一字不删地喂给AI生图模型。AI自动将方案内容重组为信息图排版。
+
+#### 执行步骤
+
+**Step 1：读取两份内容**
+```
+1. Read: references/campaign-one-pager-prompt.md（固定prompt，一字不删）
+2. Read: 阶段4策划MD（完整方案内容）
+```
+
+**Step 2：拼接后生图**
+```
+将固定prompt + 策划MD全文拼接 → 传入生图模型
+```
+
+推荐使用 GPT Image 2（用户提供的 aixw.top API 实测效果好，无水印）。
+
+#### One-Pager 内容模块（自动重组）
+
+策划MD中的信息会被AI自动重组为：
+- 活动概览（大标题+核心钩子+时间）
+- SMART 五维校验卡片
+- 产品体系展示
+- 内容矩阵（小红书/抖音/朋友圈）
+- 投放策略 & 预算概览
+- 执行 Timeline
+- KPI & 风险预案
+- 活动机制 & 用户参与路径
+
+全部浮于柔白背景之上，glassmorphism 卡片风格，不对称杂志式排版，不排表格。
+
+### 备选输出
+
+**HTML Dashboard**：如需交互式策划看板（Tab切换、hover动效、可部署链接），可从 `references/dashboard-template.html` 模板生成。
 
 ### 触发条件
 
-用户说"生成看板"/"出Dashboard"/"可视化方案"/"替代PPT"时触发。
+用户说"生成看板"/"出Dashboard"/"出方案全景图"/"生成一张图"/"可视化方案"时触发。
 
-### 执行逻辑
+**默认优先出 One-Pager 全景图**——它是最直接的交付物，一张图让别人看完整个方案。Dashboard 作为备选仅在用户明确要求"交互看板"时触发。
 
-生成一个**单文件HTML Dashboard**，替代传统PPT：
-- 呼吸感卡片动效（hover浮动、渐入动画）
-- Tab导航切换（活动概览/策划方案/内容矩阵/执行管理/数据看板）
-- 响应式设计，手机/平板/电脑都能看
-- 可直接浏览器打开，也可部署到Vercel/Cloudflare Pages
+### 技术实现（One-Pager）
 
-### 输出内容
+- **生图模型**：GPT Image 2（推荐，实测无水印/真实质感）
+- **备用方案**：Nano Banana Pro、Midjourney（仅提供提示词）
+- **prompt 来源**：`references/campaign-one-pager-prompt.md`（全文不可删减）
 
-```
-为用户生成：
-1. 单文件 HTML Dashboard（.html）
-2. 可直接浏览器打开预览
-3. 如需部署，提供一键部署指引
-
-Dashboard 包含模块：
-- 顶部导航：活动概览 | 策划方案 | 内容矩阵 | 执行管理 | 数据看板
-- 活动概览Tab：大标题区、SMART校验五维卡片、活动状态
-- 策划方案Tab：产品线、拼单体系、预算总览（图表）
-- 内容矩阵Tab：小红书/抖音/朋友圈 3/3/3矩阵
-- 执行管理Tab：Timeline时间轴、风险预案、Checklist
-- 数据看板Tab：KPI指标、投放策略、预算分解
-```
-
-### 技术实现
+### 技术实现（Dashboard 备选）
 
 - **框架**：纯HTML+CSS+JS，无依赖
 - **样式**：Tailwind CSS CDN
@@ -577,25 +621,17 @@ Dashboard 包含模块：
 - **图表**：纯CSS实现（预算饼图、timeline等）
 - **配色**：读取策划案中的品牌色（默认茶绿#7BA395 + 暖金#C5975B）
 
-### 使用方式
-
-```
-1. 生成HTML文件 → 用户用浏览器打开
-2. 如需分享给团队 → 部署到Vercel（提供一键脚本）
-3. 如需嵌入腾讯文档 → 截图关键页面插入
-4. 如需打印 → 浏览器打印为PDF
-```
-
 ### 与PPT的区别
 
-| 维度 | PPT | HTML Dashboard |
-|------|-----|----------------|
-| 交互 | 静态翻页 | Tab切换、hover动效、可展开详情 |
-| 更新 | 改文件重发 | 改数据刷新即用 |
-| 分享 | 发文件 | 发链接（如部署）或截图 |
-| 手机看 | 需要Office/转PDF | 直接浏览器打开，自适应 |
-| 成本 | ¥5-6（Nano Banana） | 免费（纯HTML生成） |
-| 质感 | 依赖AI生图质量 | 代码级精确控制，呼吸感稳定 |
+| 维度 | One-Pager 全景图 | HTML Dashboard | 传统 PPT |
+|------|-----------------|----------------|---------|
+| 一目了然 | ✅ 一张图看完 | ❇️ 需切换Tab | ❌ 逐页翻 |
+| 发朋友圈/群 | ✅ 直接发图 | ❌ 需发链接 | ❌ 需发文件 |
+| 交互 | ❌ 静态图 | ✅ Tab/hover | ❌ 静态翻页 |
+| 生成速度 | ~30秒 | ~2分钟 | ~10分钟 |
+| 质感 | 高端策略看板 | 代码级精确控制 | 依赖AI生图 |
+| 适合场景 | 汇报/展示/社媒传播 | 内部管理/团队协作 | 正式提案 |
+
 
 ---
 
@@ -643,7 +679,7 @@ Dashboard 包含模块：
 
   → 阶段4：出完整SMART策划案（3/3/3矩阵+活动+投放）
   → 阶段5：收集门店照片 → Lovart 生图
-  → 阶段6：Ppt Deck Master 出 PPT
+  → 阶段6：方案全景图（策划MD+固定prompt → One-Pager）
 ```
 
 ---
@@ -668,4 +704,6 @@ Dashboard 包含模块：
 - [ ] 阶段5：提示词从关键词库动态组装（非预设模板）？
 - [ ] 阶段5：先生成Board预览，用户确认后再单独生成高清图？
 - [ ] 阶段5：品牌素材融入了生图prompt？
-- [ ] 阶段6：Dashboard 包含全部策划案内容、动效正常？
+- [ ] 阶段6：优先生成 One-Pager 全景图（策划MD+固定prompt全文给AI）？
+- [ ] 阶段6：固定prompt一字不删地读取自 references/campaign-one-pager-prompt.md？
+- [ ] 阶段6：Dashboard 仅在用户明确要求"交互看板"时触发（备选）？
