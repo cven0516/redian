@@ -48,7 +48,7 @@
 
 什么都不懂的人聊几句，就能搞出这张一目了然的方案图。把整个 SMART 策划案浓缩成一张高端策略看板，活动概览/SMART校验/产品体系/内容矩阵/投放预算/Timeline/KPI 全部浮于柔白玻璃卡片之上——一张图发出去，别人看完整个方案。
 
-![方案全景图](assets/campaign-one-pager.jpg)
+![方案全景图](https://raw.githubusercontent.com/cven0516/yunwei-showcase/main/images/campaign-one-pager.jpg)
 
 ---
 
@@ -138,7 +138,7 @@
 
 ---**门店活动场景效果图：**
 
-![散伙糕活动场景](assets/store-scene-3d.png)
+![散伙糕活动场景](https://raw.githubusercontent.com/cven0516/yunwei-showcase/main/images/store-scene-3d.png)
 
 ### 云味·小锅米线 x #寻味城市招牌美食 -> 「复旦同济中间的那锅酸」
 
