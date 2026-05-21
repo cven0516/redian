@@ -154,6 +154,10 @@
 
 ![云味方案全景图](https://raw.githubusercontent.com/cven0516/yunwei-showcase/main/images/V12_Campaign_OnePager_%E6%96%B9%E6%A1%88%E5%85%A8%E6%99%AF%E5%9B%BE.jpg)
 
+**AI 生成的活动物料：**
+
+![铜锅米线](https://raw.githubusercontent.com/cven0516/yunwei-showcase/main/images/V01_%E9%93%9C%E9%94%85%E7%B1%B3%E7%BA%BFHeroShot.png) ![梧桐树门店](https://raw.githubusercontent.com/cven0516/yunwei-showcase/main/images/V02_%E6%A2%A7%E6%A1%90%E6%A0%91%E9%97%A8%E5%BA%97%E6%B0%9B%E5%9B%B4.png) ![三种酸](https://raw.githubusercontent.com/cven0516/yunwei-showcase/main/images/V04_%E4%B8%89%E7%A7%8D%E9%85%B8%E7%89%B9%E5%86%99.png) ![故事墙](https://raw.githubusercontent.com/cven0516/yunwei-showcase/main/images/V03_%E6%95%85%E4%BA%8B%E5%A2%99%E7%BA%B8%E6%9D%A1.png) ![A字牌](https://raw.githubusercontent.com/cven0516/yunwei-showcase/main/images/V06_A%E5%AD%97%E7%89%8C%E8%B7%AF%E8%BE%B9%E7%AB%8B%E7%89%8C.png) ![小卡片](https://raw.githubusercontent.com/cven0516/yunwei-showcase/main/images/V07_%E4%B8%89%E7%A7%8D%E9%85%B8%E5%B0%8F%E5%8D%A1%E7%89%87.png)
+
 ---
 
 ## 八、文件结构
