@@ -136,7 +136,9 @@
 
 📄 [查看完整策划案](cases/散伙糕_SMART策划案.md)
 
----
+---**门店活动场景效果图：**
+
+![散伙糕活动场景](assets/store-scene-3d.png)
 
 ### 云味·小锅米线 x #寻味城市招牌美食 -> 「复旦同济中间的那锅酸」
 
@@ -151,11 +153,6 @@
 [查看完整案例（策划案 + 全部物料）](https://github.com/cven0516/yunwei-showcase)
 
 ![云味方案全景图](https://raw.githubusercontent.com/cven0516/yunwei-showcase/main/images/V12_Campaign_OnePager_%E6%96%B9%E6%A1%88%E5%85%A8%E6%99%AF%E5%9B%BE.jpg)
-
-
-**AI 生成的门店活动场景想象图：**
-
-![散伙糕活动场景](assets/store-scene-3d.png)
 
 ---
 
