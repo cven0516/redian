@@ -131,6 +131,10 @@
 
 📄 [查看完整策划案](cases/散伙糕_SMART策划案.md)
 
+**AI 生成的门店活动场景想象图：**
+
+![散伙糕活动场景](assets/store-scene-3d.png)
+
 ---
 
 ## 八、文件结构
@@ -148,7 +152,8 @@
 ├── cases/
 │   └── 散伙糕_SMART策划案.md       # 完整案例
 └── assets/
-    └── dashboard-preview.jpg      # Dashboard效果预览
+    ├── dashboard-preview.jpg      # Dashboard效果预览
+    └── store-scene-3d.png         # 散伙糕案例·AI生成门店活动场景
 ```
 
 ---
